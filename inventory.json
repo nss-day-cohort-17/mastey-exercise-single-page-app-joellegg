@@ -6,6 +6,27 @@
       "year": "2006",
       "price": "8999",
       "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "GMC",
+      "model": "Acadia",
+      "year": "2015",
+      "price": "35999",
+      "description": "This is an immaculate 2015 GMC Acadia with only 25000 miles on it. Leather seats, power everything. Some old butthole hit the front bumper but it's fixed now. Good as new!"
+    },
+    {
+      "make": "Saturn",
+      "model": "Ion",
+      "year": "2006",
+      "price": "4999",
+      "description": "This is an immaculate 2006 Saturn Ion with 125000 miles on it. Cloth seats, power nothing."
+    },
+    {
+      "make": "Jeep",
+      "model": "Cherokee",
+      "year": "2006",
+      "price": "9999",
+      "description": "This is an immaculate 2006 Jeep Cherokee with only 75000 miles on it. Leather seats, power everything. It's 4x4 season! Lifted like Kims Ks face!"
     }
   ]
 }
