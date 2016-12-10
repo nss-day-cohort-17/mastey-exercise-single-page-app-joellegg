@@ -1,9 +1,9 @@
-var inventory = [];
+let inventory = [];
 loadInventory();
 
 function populatePage (e) {
     // Loop over the inventory and populate the page
-    var carList = document.getElementById('usedCarList');
+    const carList = document.querySelector('#usedCarList');
     inventory = JSON.parse(e.target.responseText);
     carList.innerHTML = inventory.cars[0].make;
     console.log(inventory);
@@ -15,8 +15,8 @@ function populatePage (e) {
 // invoked after the process is complete
 
 function loadInventory () {
-    var inventoryLoader = new XMLHttpRequest();
-    inventoryLoader.addEventListener("load", function (e) {
+    const inventoryLoader = new XMLHttpRequest();
+    inventoryLoader.addEventListener("load", (e) => {
         // whatever anonymous function does.
         console.log(this);
         populatePage(e);
