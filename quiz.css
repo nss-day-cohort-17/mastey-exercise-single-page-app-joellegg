@@ -4,6 +4,6 @@ img {
 .autos {
     margin-top: 3em;
 }
-.card {
+.card:hover {
     border: 3px solid black;
 }
