@@ -28,20 +28,21 @@ function populatePage (e) {
         // if i%3 === 0 close div might need ++i instead modulus
 
     }
+    // write to the HTML
     autoSection.innerHTML = carInventory;
     //get number of cards on page
     //console.log(document.querySelectorAll('.card').length);
 
     // Now that the DOM is loaded, establish all the event listeners needed
-    activateEvents();
+    activateEventListeners();
 }
 
 document.querySelector('.card').addEventListener('click', function(e){
   console.dir(e.currentTarget);
-  // activateEvents(e);
+  // activateEventListeners(e);
 })
 
-function activateEvents() {
+function activateEventListeners() {
     // event listener on the cards
     for (let i = 0; i < document.querySelectorAll('.card').length; i++) {
         document.querySelectorAll('.card')[i].addEventListener('click', function(e){
@@ -54,10 +55,20 @@ function activateEvents() {
             // move focus to the description field in the navbar
             let descriptionField = document.querySelector('.form-control');
             descriptionField.focus();
+            editCardDescription();
         })
     }
-    // event listener on the description input, include keyup listener
 };
+
+///////////////////////////
+//     You are here      //
+///////////////////////////
+
+function editCardDescription () {
+    // event listener on the description input, include keyup listener
+    let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p').innerHTML;
+    console.log(editHighlightedCard);
+}
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
