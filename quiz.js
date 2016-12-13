@@ -44,22 +44,29 @@ function populatePage (e) {
     activateEventListeners();
 }
 
-// global listener
-// document.querySelector('.card').addEventListener('click', function(e){
-//   console.dir(e.currentTarget);
-//   // activateEventListeners(e);
-// })
+//////////////////////
+//// You are here  ///
+//////////////////////
 
 function activateEventListeners() {
     // event listener on the cards
     for (let i = 0; i < document.querySelectorAll('.card').length; i++) {
         document.querySelectorAll('.card')[i].addEventListener('click', function(e){
-            //if a card is already clicked then remove the class and add it to the one that is clicked
-            if (document.querySelector('.cardClick')) {
+            //if another card is clicked then remove the class and add it to the one that is clicked
+            if (e.currentTarget.classList.contains('cardClick')) {
+                console.log("Tis true. It has the class cardClick")
+                e.currentTarget.classList.remove('cardClick');
+            } else if (document.querySelector('.cardClick')) {
                 document.querySelector('.cardClick').classList.remove('cardClick');
+                e.currentTarget.classList.add("cardClick");
+            } else {
+                e.currentTarget.classList.add("cardClick");
             }
+            // if the current target is already clicked then remove it. Else add it
+            // console.dir(e.currentTarget)
+            // document.querySelectorAll('.cardClick').classList.remove('cardClick');
             // add the class of cardClick to the clicked card
-            e.currentTarget.classList.add("cardClick");
+
             // move focus to the description field in the navbar
             let descriptionField = document.querySelector('.form-control');
             descriptionField.focus();
