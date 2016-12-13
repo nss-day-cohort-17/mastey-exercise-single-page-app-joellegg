@@ -11,6 +11,11 @@ function populatePage (e) {
     autoSection.innerHTML = "";
     let carInventory = "";
     for (let i = 0; i < inventory.cars.length; i++) {
+        console.log(i, (i%3));
+        if (i%3 === 0) {
+            carInventory += `<div class="row">`;
+            console.log('begin row');
+        }
         carInventory +=
         `<div class="col-md-4 col-sm-6">
             <div class="card">
@@ -24,9 +29,17 @@ function populatePage (e) {
                 </div>
             </div>
         </div>`;
+        if (i%3 === 2) {
+            carInventory += `</div>`;
+            console.log('end row')
+        }
+        console.log("i", i, (inventory.cars.length - 1));
+        if (i === (inventory.cars.length - 1)) {
+            carInventory += `</div>`
+            console.log('last one!')
+        }
         // for every 3 cards we need a wrapper div with class of row
         // if i%3 === 0 close div might need ++i instead modulus
-
     }
     // write to the HTML
     autoSection.innerHTML = carInventory;
@@ -36,6 +49,7 @@ function populatePage (e) {
     // Now that the DOM is loaded, establish all the event listeners needed
     activateEventListeners();
 }
+
 
 document.querySelector('.card').addEventListener('click', function(e){
   console.dir(e.currentTarget);
@@ -68,6 +82,17 @@ function editCardDescription () {
     // event listener on the description input, include keyup listener
     let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p').innerHTML;
     console.log(editHighlightedCard);
+    let newDescription = document.querySelector('.form-control').value;
+    newDescription.addEventListener('keyup', function() {
+        console.log(newDescription.value);
+    });
+}
+
+function changeDescription () {
+    // get reference to text input
+    let newDescription = document.querySelector('.form-control').value;
+    console.log(newDescription);
+    //editHighlightedCard.innerHTML +=
 }
 
 // Load the inventory and send a callback function to be
