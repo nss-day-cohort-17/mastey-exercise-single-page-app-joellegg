@@ -37,43 +37,35 @@ function populatePage (e) {
     }
     // write to the HTML
     autoSection.innerHTML = carInventory;
-    //get number of cards on page
-    //console.log(document.querySelectorAll('.card').length);
 
     // Now that the DOM is loaded, establish all the event listeners needed
     activateEventListeners();
 }
 
-//////////////////////
-//// You are here  ///
-//////////////////////
-
 function activateEventListeners() {
     // event listener on the cards
     for (let i = 0; i < document.querySelectorAll('.card').length; i++) {
         document.querySelectorAll('.card')[i].addEventListener('click', function(e){
-            //if another card is clicked then remove the class and add it to the one that is clicked
+            // if the current card already has the cardClick class then remove it
             if (e.currentTarget.classList.contains('cardClick')) {
                 console.log("Tis true. It has the class cardClick")
                 e.currentTarget.classList.remove('cardClick');
+            // if another card is clicked then remove the class and add it to the one that is clicked
             } else if (document.querySelector('.cardClick')) {
                 document.querySelector('.cardClick').classList.remove('cardClick');
                 e.currentTarget.classList.add("cardClick");
+            // else add the cardClick class to the target
             } else {
                 e.currentTarget.classList.add("cardClick");
             }
-            // if the current target is already clicked then remove it. Else add it
-            // console.dir(e.currentTarget)
-            // document.querySelectorAll('.cardClick').classList.remove('cardClick');
-            // add the class of cardClick to the clicked card
 
             // move focus to the description field in the navbar
             let descriptionField = document.querySelector('.form-control');
+            descriptionField.value = "";
             descriptionField.focus();
         })
     editCardDescription();
     }
-
 };
 
 
@@ -81,6 +73,7 @@ function editCardDescription () {
     // event listener on the description input, include keyup listener
     let newDescription = document.querySelector('.form-control');
 
+    // on keyup event change the text
     newDescription.addEventListener('keyup', function(e) {
         let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p');
         if (e.key === "Enter") {
