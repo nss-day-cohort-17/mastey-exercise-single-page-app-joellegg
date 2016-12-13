@@ -30,7 +30,7 @@ function populatePage (e) {
         if (i%3 === 2) {
             carInventory += `</div>`;
         }
-        console.log("i", i, (inventory.cars.length - 1));
+        //console.log("i", i, (inventory.cars.length - 1));
         if (i === (inventory.cars.length - 1)) {
             carInventory += `</div>`
         }
@@ -63,33 +63,27 @@ function activateEventListeners() {
             // move focus to the description field in the navbar
             let descriptionField = document.querySelector('.form-control');
             descriptionField.focus();
-            editCardDescription();
         })
+    editCardDescription();
     }
+
 };
 
-///////////////////////////
-//     You are here      //
-///////////////////////////
 
 function editCardDescription () {
     // event listener on the description input, include keyup listener
-    let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p').innerHTML;
-    console.log('highlighted card', editHighlightedCard);
     let newDescription = document.querySelector('.form-control');
-    newDescription.addEventListener('keyup', function() {
-        console.log(newDescription.value);
-        editHighlightedCard = newDescription.value;
+
+    newDescription.addEventListener('keyup', function(e) {
+        let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p');
+        if (e.key === "Enter") {
+            newDescription.value = "";
+        } else {
+            editHighlightedCard.innerHTML = newDescription.value;
+        }
     });
-    //changeDescription();
 }
 
-// function changeDescription () {
-//     // get reference to text input
-//     let newDescription = document.querySelector('.form-control').value;
-//     console.log(newDescription);
-//     //editHighlightedCard.innerHTML +=
-// }
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
