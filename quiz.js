@@ -11,10 +11,8 @@ function populatePage (e) {
     autoSection.innerHTML = "";
     let carInventory = "";
     for (let i = 0; i < inventory.cars.length; i++) {
-        console.log(i, (i%3));
         if (i%3 === 0) {
             carInventory += `<div class="row">`;
-            console.log('begin row');
         }
         carInventory +=
         `<div class="col-md-4 col-sm-6">
@@ -31,15 +29,11 @@ function populatePage (e) {
         </div>`;
         if (i%3 === 2) {
             carInventory += `</div>`;
-            console.log('end row')
         }
         console.log("i", i, (inventory.cars.length - 1));
         if (i === (inventory.cars.length - 1)) {
             carInventory += `</div>`
-            console.log('last one!')
         }
-        // for every 3 cards we need a wrapper div with class of row
-        // if i%3 === 0 close div might need ++i instead modulus
     }
     // write to the HTML
     autoSection.innerHTML = carInventory;
@@ -50,11 +44,11 @@ function populatePage (e) {
     activateEventListeners();
 }
 
-
-document.querySelector('.card').addEventListener('click', function(e){
-  console.dir(e.currentTarget);
-  // activateEventListeners(e);
-})
+// global listener
+// document.querySelector('.card').addEventListener('click', function(e){
+//   console.dir(e.currentTarget);
+//   // activateEventListeners(e);
+// })
 
 function activateEventListeners() {
     // event listener on the cards
@@ -81,19 +75,21 @@ function activateEventListeners() {
 function editCardDescription () {
     // event listener on the description input, include keyup listener
     let editHighlightedCard = document.querySelector('.cardClick').querySelector('.card-block').querySelector('p').innerHTML;
-    console.log(editHighlightedCard);
-    let newDescription = document.querySelector('.form-control').value;
+    console.log('highlighted card', editHighlightedCard);
+    let newDescription = document.querySelector('.form-control');
     newDescription.addEventListener('keyup', function() {
         console.log(newDescription.value);
+        editHighlightedCard = newDescription.value;
     });
+    //changeDescription();
 }
 
-function changeDescription () {
-    // get reference to text input
-    let newDescription = document.querySelector('.form-control').value;
-    console.log(newDescription);
-    //editHighlightedCard.innerHTML +=
-}
+// function changeDescription () {
+//     // get reference to text input
+//     let newDescription = document.querySelector('.form-control').value;
+//     console.log(newDescription);
+//     //editHighlightedCard.innerHTML +=
+// }
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
