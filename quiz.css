@@ -8,3 +8,9 @@ img {
     border: 3px solid black;
     background-color: #7AFD55;
 }
+#wider {
+    width: 100%;
+}
+.form-inline {
+    width: 50%;
+}
