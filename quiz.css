@@ -1,0 +1,16 @@
+img {
+    width: 100%;
+}
+.autos {
+    margin-top: 3em;
+}
+.cardClick {
+    border: 3px solid black;
+    /*background-color: #7AFD55;*/
+}
+#wider {
+    width: 100%;
+}
+.form-inline {
+    width: 50%;
+}
