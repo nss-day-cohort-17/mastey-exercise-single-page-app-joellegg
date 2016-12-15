@@ -71,7 +71,8 @@ function activateEventListeners() {
                 e.currentTarget.classList.add("cardClick");
                 changeCardColor(e, "red");
             }
-    });
+        });
+    }
     // editCardDescription();
 };
 
