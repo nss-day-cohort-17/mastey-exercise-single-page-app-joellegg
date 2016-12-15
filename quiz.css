@@ -6,7 +6,7 @@ img {
 }
 .cardClick {
     border: 3px solid black;
-    background-color: #7AFD55;
+    /*background-color: #7AFD55;*/
 }
 #wider {
     width: 100%;
